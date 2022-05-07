@@ -114,7 +114,104 @@
 
 
 
-## 六. 
+## 六. 事件循环eventloop
 
 
 
+## 七. this指向问题
+
+### 1.this指向
+
+#### 	1.1 定时器
+
+```javascript
+setTimeout(function(){
+    console.log(this);//this指向window
+},1000)
+```
+
+- `setTimeout`和`setInterval`区别：
+
+  - `setTimeout` 只会执行一次，执行完就停止
+
+  - `setInterval` 会一直循环，直到被清除
+
+    ```javascript
+    var timer = setInterval(function(){
+        console.log(this)
+    },1000)
+    clearInterval(timer)
+    ```
+
+#### 1.2 事件
+
+```javascript
+var oDiv = document.getElementById('div1');
+oDiv.onclick = function(){
+    console.log(this);//this指向oDiv
+}
+// __.方法，this就指向__
+```
+
+#### 1.4 对象方法中
+
+```javascript
+var obj = {
+    name:'zs',
+    eat:function(){
+        console.log(this);//obj
+    }
+}
+obj.eat();
+```
+
+#### 1.5 构造函数中
+
+```javascript
+function Person(name){
+    this.name = name
+}
+var P1 = new Person('zs');//this指向P1
+```
+
+
+
+### 2. 改变this指向
+
+```javascript
+let obj = {
+    name:'ls',
+    age:18,
+    say:function(msg,msg1){
+        console.log(this,msg,msg1);
+    }
+}
+let obj2 = {
+    name:'llllll'
+}
+obj.say()
+obj.say.call(obj2,'call','参数2');//(this指向，参数1，参数2，参数3)
+obj.say.apply(obj2,['apply','参数2']);//(this指向，[参数1，参数2，参数3])
+obj.say.bind(obj2,'bind','需要单独调用')();//(this指向，参数1，参数2，参数3)()或者(this指向)(参数1，参数2，参数3)
+```
+
+- 区别：
+  - 传参方式不同
+  - call和bind都会修改this指向并调用方法，而bind只会修改this指向
+
+
+
+### 3. js的严格模式
+
+- js有严格模式`('use strict')`，在类方法及ES6的一些语法里,会默认开启严格模式，而在严格模式下，this禁止指向window
+
+  ```javascript
+  'use strict'
+  function foo() {
+      console.log(this);
+  }
+  foo()
+  // 返回undefined
+  ```
+
+  
