@@ -150,7 +150,7 @@ var oDiv = document.getElementById('div1');
 oDiv.onclick = function(){
     console.log(this);//this指向oDiv
 }
-// __.方法，this就指向__
+// __.方法，this就指向__（事件处理函数指向事件源）
 ```
 
 #### 1.4 对象方法中
@@ -159,7 +159,7 @@ oDiv.onclick = function(){
 var obj = {
     name:'zs',
     eat:function(){
-        console.log(this);//obj
+        console.log(this);//obj（指向当前对象）
     }
 }
 obj.eat();
@@ -171,10 +171,12 @@ obj.eat();
 function Person(name){
     this.name = name
 }
-var P1 = new Person('zs');//this指向P1
+var P1 = new Person('zs');//this指向P1（构造函数）
 ```
 
+#### 1.6普通函数
 
+普通函数this指向window
 
 ### 2. 改变this指向
 
