@@ -153,7 +153,7 @@ oDiv.onclick = function(){
 // __.方法，this就指向__（事件处理函数指向事件源）
 ```
 
-#### 1.4 对象方法中
+#### 1.3 对象方法中
 
 ```javascript
 var obj = {
@@ -165,18 +165,29 @@ var obj = {
 obj.eat();
 ```
 
-#### 1.5 构造函数中
+#### 1.4 构造函数中
 
 ```javascript
 function Person(name){
-    this.name = name
+    this.name = name;
+    console.log(this);
+    // return 
+    // 1. return 一个对象会改变this指向,this指向这个对象
+    // 2. return 一个基本数据类型, 
 }
-var P1 = new Person('zs');//this指向P1（构造函数）
+let P1 = new Person('zs');//this指向P1（构造函数）
+// 1. let o = new Object();
+// 2. this -> o;
+// 3. return o
+person("zs");//此处this指向window
+console.log(this.name)
 ```
 
-#### 1.6普通函数
+#### 1.5普通函数
 
 普通函数this指向window
+
+
 
 ### 2. 改变this指向
 
