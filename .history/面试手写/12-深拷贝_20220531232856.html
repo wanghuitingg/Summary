@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // 1.使用JSON.stringify()和JSON.parse()
+        // // !! 不可以拷贝undefined，function等类型
+        // let obj = {
+        //     a: 1,
+        //     b: 2,
+        //     c: 3
+        // }
+        // let objString = JSON.stringify(obj);
+        // let obj1 = JSON.parse(objString);
+        // obj1.a = 'a';
+        // console.log(obj.a); // 1
+        // console.log(obj1.a); // a
+
+
+        // // 2.通过遍历实现
+        // let arr = [1, 2, 3, 4, 5];
+        // function copy(arr) {
+        //     let newArr = [];
+        //     for (const item of arr) {
+        //         newArr.push(item)
+        //     }
+        //     return newArr
+        // }
+        // let copyArr = copy(arr);
+        // copyArr[0] = 'a';
+        // console.log(arr); // [1, 2, 3, 4, 5]
+        // console.log(copyArr); // ['a', 2, 3, 4, 5]
+
+
+        // // 3.使用for in方法
+        // let person = {
+        //     name: 'liuyu',
+        //     age: 21
+        // }
+        // function deepClone(obj) {
+        //     let tmp = {};
+        //     for (const key in obj) {
+        //         tmp[key] = obj[key]
+        //     }
+        //     return tmp
+        // }
+        // console.log(deepClone(person));
+
+
+        // 4.使用递归
+        let person = {
+            name:'liuyu',
+            age:21,
+            school:{
+                address:'beijing',
+                num:1
+            }
+        }
+        function deepClone(obj) {
+            let tmp = {};
+            for (const key in obj) {
+                if (typeof (obj[key])==='object') {
+                    tmp[key] = deepClone(obj[key])
+                }else{
+                    tmp[key] = obj[key]
+                }
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
