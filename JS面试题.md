@@ -179,7 +179,7 @@ let P1 = new Person('zs');//this指向P1（构造函数）
 // 1. let o = new Object();
 // 2. this -> o;
 // 3. return o
-person("zs");//此处this指向window
+Person("zs");//此处this指向window
 console.log(this.name)
 ```
 
@@ -210,7 +210,7 @@ obj.say.bind(obj2,'bind','需要单独调用')();//(this指向，参数1，参�
 
 - 区别：
   - 传参方式不同
-  - call和bind都会修改this指向并调用方法，而bind只会修改this指向
+  - call和apply都会修改this指向并调用方法，而bind只会修改this指向
 
 
 

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <div class="left">左侧固定</div>
+        <div class="right">右侧自适应</div>
+    </div>
+</body>
+
+</html>
+<style>
+/* 1.左侧浮动，右侧实现宽度100％，占据左侧普通流位置 */
+/* .father{
+    width: 100%;
+    height: 500px;
+    background-color: #ea9191;
+}
+.left{
+    float: left;
+    width: 100px;
+    height: 500px;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(118, 188, 234);
+} */
+
+
+/* 2.左侧固定宽度，右侧flex自适应 */
+/* .father{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: #ea9191;
+}
+.left{
+    width: 100px;
+    height: 100%;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    flex: 1;
+    background-color: rgb(118, 188, 234);
+} */
+
+
+/* 3. 左侧固定宽度左浮动，右侧设置margin-left等于左侧宽度 */
+/* .father{
+    width: 100%;
+    height: 500px;
+    background-color: #ea9191;
+}
+.left{
+    width: 100px;
+    float: left;
+    height: 100%;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    margin-left: 100px;
+    height: 100%;
+    background-color: rgb(118, 188, 234);
+} */
+
+
+/* 4. 左侧固定位置，右侧margin-left等于左侧宽度 */
+/* .father{
+    width: 100%;
+    height: 500px;
+    background-color: #ea9191;
+}
+.left{
+    width: 100px;
+    height: 100%;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    margin: -500px 0 0 100px;
+    height: 500px;
+    background-color: rgb(118, 188, 234);
+} */
+
+
+/* 5. 左侧固定宽度、固定定位，（父元素position:relative），右侧宽度100％ */
+/* .father{
+    width: 100%;
+    height: 500px;
+    background-color: #ea9191;
+    position: relative;
+}
+.left{
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-color: rgb(157, 231, 170);
+    /* top:0;
+    left: 0; */
+}
+/*.right{
+    margin-left: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(118, 188, 234);
+} */
+
+
+/* 6. 右边触发BFC，将不与左侧发生重叠，右边盒子默认100％ */
+/* .father{
+    width: 100%;
+    height: 500px;
+    background-color: #ea9191;
+}
+.left{
+    width: 100px;
+    float: left;
+    height: 500px;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    height: 500px;
+    overflow: hidden;
+    background-color: rgb(118, 188, 234);
+} */
+
+
+/* 没成功。。。 */
+/* 7. 利用flex布局在父盒子宽度不够时会自动压缩盒子的特性，设置左边不参与压缩，右边被压缩
+.father{
+    display: flex;
+}
+.left{
+    width: 100px;
+    height: 500px;
+    background-color: rgb(157, 231, 170);
+    flex-shrink: 0;
+}
+.right{
+    height: 500px;
+    background-color: rgb(118, 188, 234);
+    width: 100%;
+
+} */
+
+
+/* 没成功。。 */
+/* 8. display:table
+.father{
+    width: 100%;
+    height: 500px;
+    display: table;
+}
+.left{
+    width: 100px;
+    height: 100%;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    width: 100%;
+    display: table-cell;
+    background-color: rgb(118, 188, 234);
+} */
+
+/* 没成功。。 */
+/* 9. grid网格
+.father{
+    width: 100%;
+    height: 500px;
+    display: table;
+    display: grid
+    grid-template-columns: 200px auto;  
+    /* 设置每一列的宽度左100px，右自适应 
+}
+.left{
+    width: 100px;
+    height: 100%;
+    background-color: rgb(157, 231, 170);
+}
+.right{
+    width: 100%;
+    display: table-cell;
+    background-color: rgb(118, 188, 234);
+} */
+</style>

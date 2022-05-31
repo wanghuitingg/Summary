@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // 第一题
+        // window.name = "db"
+        // class A {
+        //     constructor() {
+        //         // 属性
+        //         this.name = "123"
+        //     }
+        //     // 原型下的方法
+        //     getA() {
+        //         console.log(this);
+        //         return this.name + 1
+        //     }
+        // }
+        // // 实例化一个对象
+        // let a = new A();
+        // // getA没有执行(getA()才执行了),getA只是把函数体赋值给了funA
+        // let funcA = a.getA
+        // console.log(funcA());
+        // // // 输出undefined
+
+
+        // // 第六题
+        // window.name = "ByteDance";
+        // function A() {
+        //     this.name = 123
+        // }
+        // A.prototype.getA = function () {
+        //     console.log(this);
+        //     return this.name + 1;
+        // }
+        // // 实例化对象
+        // let a = new A();
+        // // 在调用时决定this指向
+        // let funcA = a.getA;
+        // console.log(funcA());//this → window，ByteDance1
+        // let funcB = a.getA();//this → A(Object)
+
+
+        // /**
+        //  * 在严格模式(use strict)下,this禁止指向window
+        //  * 在类方法及ES6的一些语法里,会默认开启严格模式
+        //  * */
+
+        // // function foo() {
+        // //     console.log(this);
+        // // }
+        // // foo()
+        // // // this指向window
+
+        // // 'use strict'
+        // // function foo() {
+        // //     console.log(this);
+        // // }
+        // // foo()
+        // // // 返回undefined
+
+        // // 第二题
+        // const a = 1;
+        // const obj = {
+        //     a: 2,
+        //     show1: function () {
+        //         console.log(this); //obj
+        //         console.log(this.a); //2
+        //     },
+        //     show2: () => {
+        //         console.log(this); //window
+        //         console.log(this.a); //undefined
+        //     }
+        // }
+        // obj.show1();
+        // obj.show2();
+        // const fun1 = obj.show1;
+        // const fun2 = obj.show2;
+        // fun1();//window,undefined
+        // fun2()//window,undefined
+
+        // // 第三题 百度
+        // function Foo(){
+        //     Foo.a = function () {
+        //         console.log(1);
+        //     }
+        //     this.a = function(){
+        //         console.log(2);
+        //     }
+        // }
+        // Foo.prototype.a = function(){
+        //     console.log(3);
+        // }
+        // Foo.a = function(){
+        //     console.log(4);
+        // }
+        // // Foo.a(),函数.a或者构造函数.a,函数也属于一种引用数据类型（且是特殊的对象类型）
+        // Foo.a();//4
+        // // 原型链，先从当前构造函数找，没有再去原型去找，所以是2不是3
+        // let obj = new Foo();
+        // obj.a();//2
+        // // 89行让Foo函数执行，所以4被1覆盖
+        // Foo.a()//1 
+
+        // 第四题 字节
+        // var o = {
+        //     f1: function () {
+        //         console.log(this);//object  （也就是o
+        //         var f2 = function () {
+        //             console.log(this);//普通函数的this指向window
+        //         }();//加（）就立即调用
+        //         // 延伸：改变this指向 ↓
+        //         // }.call()
+        //     }
+        // }
+        // o.f1()
+
+        // // 第五题
+        // window.a = 20;
+        // var obj = {
+        //     a:30,
+        //     add:function(){
+        //         this.a+=1
+        //         console.log(this.a);
+        //     }
+        // }
+        // obj.add();//31
+        // // var一个变量，变量相当于在window上
+        // // foo()相当于window.foo()
+        // var foo = obj.add;
+        // foo();//21
+
+        // // 第七题
+        // var a = 1;
+        // function Fn1() {
+        //     var a = 2;
+        //     console.log(this.a + a);
+        // }
+        // function Fn2() {
+        //     var a = 10;
+        //     Fn1()
+        // }
+        // Fn2();
+        // var Fn3 = function () {
+        //     this.a = 3
+        // }
+        // Fn3.prototype = {
+        //     a: 4
+        // }
+        // var fn3 = new Fn3();//3
+        // Fn1.call(fn3)//3+2=5
+
+        // // 第八题 滴滴
+        //     var number = 1;
+        //     var obj = {
+        //         number:2,
+        //         getNum:function(){
+        //             var number = 6;
+        //             return this.number
+        //         }
+        //     }
+        //     var getNum = obj.getNum;
+        //     console.log(getNum());//1
+        //     console.log(obj.getNum());//2
+        //     // call不传参，默认window
+        //     console.log(obj.getNum.call());//1
+        //     console.log(obj.getNum.call({ number: 7}));//7
+    </script>
+</body>
+
+</html>

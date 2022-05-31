@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, [2, [3, [4, [5, [6]]]]]]
+        // // 1.普通递归实现+concat
+        // function flatten(arr) {
+        //     let result = [];
+        //     arr.forEach(item => {
+        //         if (Array.isArray(item)) {
+        //             result = result.concat(flatten(item))
+        //         }else{
+        //             result.push(item)
+        //         }
+        //     });
+        //     return result
+        // }
+        // console.log(flatten(arr));
+
+
+        // // 2.reduce函数迭代
+        // function flatten(arr) {
+        //     return arr.reduce((result, item) => {
+        //         return result.concat(Array.isArray(item) ? flatten(item) : item)
+        //     }, []) //设置result默认类型为数组，且初始值是空数组
+        // }
+        // console.log(flatten(arr));
+
+
+        // // 3.split和toString共同处理，结果是字符类型
+        // function flatten(arr) {
+        //     return arr.toString().split(',')
+        // }
+        // console.log(flatten(arr));
+        // // ['1', '2', '3', '4', '5', '6']
+        
+
+        // // 4.**ES6的flat函数实现**
+        // // 语法：arr.flat([depth])
+        // // depth是可以传递数组的展开深度，全部展开参数传Infinity
+        // function flatten(arr) {
+        //     return arr.flat(Infinity)
+        // }
+        // console.log(flatten(arr));
+
+
+        // 5.JSON+正则表达式实现
+            function flatten(arr) {
+                let str = JSON.stringify(arr);
+                str = str.replace(/(\[|\])/)
+            }
+
+        // 6.join+split
+    </script>
+</body>
+
+</html>
