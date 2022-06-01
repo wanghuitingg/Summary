@@ -37,16 +37,27 @@
 
 
         // 3.bind
-        Function.prototype.myBind = function (context, ...args) {
-            const fn = this;
-            return function newFun(...newFnArgs) {
-                if (this instanceof newFun) {
-                    // 在此加一个判断，如果这个被返回的函数做了构造函数的话，把args也作为参数传进去
-                    return new fn(...args, ...newFnArgs)
-                }
-                return fn.apply(context, [...args, ...newFnArgs])
-            }
-        }
+        // Function.prototype.myBind = function (context,...args) {
+        //     const fn = this;
+        //     return function newFun(...newFnArgs) {
+        //         if (this instanceof newFun) {
+        //             // 在此加一个判断，如果这个被返回的函数做了构造函数的话，把args也作为参数传进去
+        //             return new fn(...args,...newFnArgs)
+        //         }
+        //         return fn.apply(context,[...args,...newFnArgs])
+        //     }
+        // }
+        // Function.prototype.myBind = function (context, ...args) {
+        //     const fn = this
+        //     return function newFn(...newFnArgs) {
+        //         if (this instanceof newFn) {
+        //             // 在此加一个判断，如果这个被返回的函数作了构造函数的话，把args也作为参数传进去
+        //             return new fn(...args, ...newFnArgs)
+        //         }
+        //         return fn.apply(context, [...args, ...newFnArgs])
+        //     }
+        // }
+
 
         let obj = {
             name: "xiaoming",

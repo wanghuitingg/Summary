@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function.prototype.myCall = function(context,...args){ // ...这里是剩余运算符
+        //     context.fn = this;
+        //     // //方法1. reg接收参数b，拿到的是字符类型，用Number.parseInt转化为number
+        //     // context.fn(Number.parseInt(args));
+        //     // 方法2. ...扩展运算符
+        //     context.fn(...args);
+        //     delete context.fn;
+        //     console.log(context);
+        // }
+
+        Function.prototype.myCall = function(context,...args){ // ...这里是剩余运算符
+            context = context || window;
+            const key = Symbol();
+            context[key] = this;
+            const resu
+        }
+
+        let a = 20;
+        let obj = {
+            a:10
+        }
+        function foo(b) {
+            console.log(this.a+b);
+        }
+        // foo.call(obj)
+        foo.myCall(obj,3)
+        // foo.myBind(obj);
+    </script>
+</body>
+</html>

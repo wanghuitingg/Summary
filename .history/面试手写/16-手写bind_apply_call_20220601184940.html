@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function.prototype.myCall = function(context,...args){ // ...这里是剩余运算符
+        //     context.fn = this;
+        //     // //方法1. reg接收参数b，拿到的是字符类型，用Number.parseInt转化为number
+        //     // context.fn(Number.parseInt(args));
+        //     // 方法2. ...扩展运算符
+        //     context.fn(...args);
+        //     delete context.fn;
+        //     console.log(context);
+        // }
+
+        // Function.prototype.myCall = function(context,...args){ // ...这里是剩余运算符
+        //     // 默认不传就是给window
+        //     context = context || window;
+        //     const key = Symbol();
+        //     context[key] = this;
+        //     // 通过隐式绑定的方式调用函数
+        //     const result = context[key](...args)
+        //     // 删除添加的属性
+        //     delete context[key]
+        //     return result
+        // }
+
+        Function.prototype.myApply = function (context,args) {
+            context = context || window;
+            args = args ? args : [];
+            const key = 
+        }
+
+        let a = 20;
+        let obj = {
+            a:10
+        }
+        function foo(b) {
+            console.log(this.a+b);
+        }
+        // foo.call(obj)
+        foo.myCall(obj,3)
+        // foo.myBind(obj);
+    </script>
+</body>
+</html>

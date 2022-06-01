@@ -37,14 +37,12 @@
 
 
         // 3.bind
-        Function.prototype.myBind = function (context, ...args) {
+        Function.prototype.myBind = function (context,...args) {
             const fn = this;
             return function newFun(...newFnArgs) {
                 if (this instanceof newFun) {
-                    // 在此加一个判断，如果这个被返回的函数做了构造函数的话，把args也作为参数传进去
-                    return new fn(...args, ...newFnArgs)
+                    // zaicizuoyi
                 }
-                return fn.apply(context, [...args, ...newFnArgs])
             }
         }
 
@@ -61,14 +59,14 @@
         }
         // obj.sayHello.myCall(obj1, '设计师', '画画'); // 我叫ly,今年30岁。我的工作是: 设计师，我的爱好是: 画画。
         // obj.sayHello.myApply(obj1, ['设计师', '画画']);
-        obj.sayHello.myBind(obj1, '设计师', '画画')();
-
-
-
-
-
-
-
+        obj.sayHello.myCall(obj1, '设计师', '画画')();
+        
+        
+        
+        
+        
+        
+        
         // Function.prototype.myCall = function(context,...args){ // ...这里是剩余运算符
         //     context.fn = this;
         //     // //方法1. reg接收参数b，拿到的是字符类型，用Number.parseInt转化为number
